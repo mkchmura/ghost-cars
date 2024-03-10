@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+{% include 'headers.html' %}
+
+<div class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div class="flex items-start justify-between flex-col">
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Nos véhicules pour cadre occupé</h2>        
+        <p class="mt-6 text-md leading-8 text-gray-500">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>      
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3">
+        {% for cars in cars %}
+        <div class="group relative">
+          <div class="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100 p-6">
+
+            {% for image in cars.product_image.all %}
+            <img src="/{{ image.image.url }}" alt="Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background." class="object-cover object-center">
+            {% endfor %}         
+          </div>
+          <div class="mt-4 flex items-center justify-between space-x-8 text-sm font-medium text-gray-900">
+            <h3>
+              <a href="/cars/{{ cars.slug }}">
+                <span aria-hidden="true" class="absolute inset-0"></span>
+                {{ cars.title }}
+              </a>
+            </h3>
+            <a href="#subscribe" class="z-10 mint p-2 rounded-lg text-sm px-4">S'abonner</a>
+          </div>
+          <p class="text-xs text-gray-500">EUR 780/semaine (HTVA)</p>
+          <a href="/cars/{{ cars.slug }}" class="text-xs">Découvrir le véhicule</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% include 'subscribe.html' %}
+
+
+  {% include 'footer.html' %}
+
+
+{% endblock %}

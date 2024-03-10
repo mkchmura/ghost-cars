@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <!--Dependencies and META-->
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GhostCars - Luxury Rentals</title>
+            <meta property="og:image" content="{% static 'img/GC.png' %}" />
+            <meta name="twitter:image" content="{% static 'img/GC.png' %}" />
+            <link rel="image_src" href="{% static 'img/GC.png' %}" />
+            <meta property="og:description" content="Découvrez notre sélection exclusive et ajoutez une touche d'élégance à votre voyage. Notre service de location de voitures vous offre une expérience de conduite inégalée à Paris et à Monaco." />
+            <meta name="description" content="Découvrez notre sélection exclusive et ajoutez une touche d'élégance à votre voyage. Notre service de location de voitures vous offre une expérience de conduite inégalée à Paris et à Monaco." />
+
+
+            <script src="https://player.vimeo.com/api/player.js"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <script src="https://kit.fontawesome.com/1c696df35c.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;600;800&amp;display=swap" rel="stylesheet">
+            <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+            <link rel="manifest" href="/site.webmanifest">
+            <link rel="mask-icon" href="static/img/safari-pinned-tab.svg" color="#111111">
+            <meta name="msapplication-TileColor" content="#111111">
+            <meta name="theme-color" content="#111111">
+
+            <!--CSS-->
+            <link rel="stylesheet" href="{% static 'css/pre-loader.css' %}">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'css/burger.css' %}">
+            <link rel="stylesheet" href="{% static 'css/cars.css' %}">
+            <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+            <link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+            <!--JS-->
+            <script src="{% static 'js/pre-loader.js' %}"></script>
+            <script src="{% static 'js/header.js' %}"></script>
+
+            <!-- TAILWIND -->
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script>
+                tailwind.config = {
+                  theme: {
+                    extend: {
+                      colors: {
+                        clifford: '#da373d',
+                      }
+                    }
+                  }
+                }
+              </script>
+
+            <!--icons-->
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </head>
+        <body>
+            
+
+        {% block content %} 
+        
+        {% endblock %}
+    </body>
+    <!--
+        <footer class="footer">
+            <div class="dropdown" id="dropdown-toggle1">
+                <div class="dropdown-title">
+                    <span>Navigation rapide</span>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div id="dropdown-menu1" class="dropdown-menu">
+                    <a href="{% url 'list' %}">Nos véhicules</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="dropdown" id="dropdown-toggle2">
+                <div class="dropdown-title">
+                    <span>Nous contacter</span>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div id="dropdown-menu2" class="dropdown-menu">
+                    <a href="#">info@ghost-cars.com</a>
+                    <a href="#">+33 6 50 50 50 50</a>
+                    <a href="#">75016, Paris</a>
+                </div>
+            </div>
+            <div class="media-i-c">
+                <a href=""><i class="fab fa-twitter" style="color: white;"></i></a>
+                <a href=""><i class="fab fa-whatsapp" style="color: white;"></i></a>
+                <a href=""><i class="fab fa-telegram" style="color: white;"></i></a>
+            </div>
+            <div class="copyright-c">
+                <span>© Ghost-Cars, 2023</span>
+            </div>
+            <script>
+                const dropdownToggle1 = document.getElementById('dropdown-toggle1');
+                const dropdownMenu1 = document.getElementById('dropdown-menu1');
+
+                const dropdownToggle2 = document.getElementById('dropdown-toggle2');
+                const dropdownMenu2 = document.getElementById('dropdown-menu2');
+
+                dropdownToggle1.addEventListener('click', function () {
+                    dropdownMenu1.style.display = (dropdownMenu1.style.display === 'flex') ? 'none' : 'flex';
+                });
+
+                dropdownToggle2.addEventListener('click', function () {
+                    dropdownMenu2.style.display = (dropdownMenu2.style.display === 'flex') ? 'none' : 'flex';
+                });
+            </script>-->
+            <!---->
+
+        </footer>
+    </html> 

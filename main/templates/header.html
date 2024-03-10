@@ -1,0 +1,55 @@
+{% load static %}
+<header class="shadow-h">
+  <a href="{% url 'index' %}" class="anone">
+    <div class="logo-c">
+      <img src="{% static 'img/FinanceUI.png' %}" alt="" class="logo">
+      <div class="logo-title-c">
+        <span class="logo-m" style="font-size: 17px;">Ghost-Cars</span>
+        <span class="loc-logo" style="font-size: 10px;">Paris - Cannes - Monaco</span>
+      </div>
+    </div>
+  </a>
+  <div class="plate plate4" id="burger-menu">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 50,35 H 30" />
+      <path class="line line2" d="M 50,35 H 70" />
+      <path class="line line3" d="M 50,50 H 30" />
+      <path class="line line4" d="M 50,50 H 70" />
+      <path class="line line5" d="M 50,65 H 30" />
+      <path class="line line6" d="M 50,65 H 70" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+</header>
+
+{% include 'header-menu.html' %}
+<script>
+document.getElementById('burger-menu').addEventListener('click', function() {
+  var menu = document.querySelector('.menu');
+  var overlay = document.querySelector('.menu-overlay');
+  var burger = document.querySelector('.plate');
+  var body = document.querySelector('body');
+
+  menu.classList.toggle('show');
+  overlay.classList.toggle('show');
+  burger.classList.toggle('active');
+  body.classList.toggle('no-scroll');
+});
+
+document.querySelector('.menu-overlay').addEventListener('click', function() {
+  var menu = document.querySelector('.menu');
+  var overlay = document.querySelector('.menu-overlay');
+  var burger = document.querySelector('.plate');
+  var body = document.querySelector('body');
+
+  if (menu.classList.contains('show')) {
+    menu.classList.remove('show');
+    overlay.classList.remove('show');
+    burger.classList.remove('active');
+    body.classList.remove('no-scroll');
+  }
+});
+</script>

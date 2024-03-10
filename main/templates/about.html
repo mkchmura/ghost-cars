@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+{% include 'headers.html' %}
+<div class="bg-white py-10 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Nous contacter</h2>
+        <p class="mt-3 text-base leading-8 text-gray-600">
+            Nous restons disponibles en permanence pour répondre à vos besoins. Vous pouvez nous contacter par e-mail, téléphone ou sur nos réseaux sociaux pour toute demande.
+        </p>
+      </div>
+      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div>
+          <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Addresse Postale</h3>
+          <address class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
+            <p>83, rue Michel Ange</p>
+            <p>75016 Paris</p>
+          </address>
+        </div>
+        <div>
+          <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Services particuliers</h3>
+          <address class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
+            <p>+33 652 111 652</p>
+            <p>info@ghost-cars.com</p>
+          </address>
+        </div>
+        <div>
+          <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Services professionnels</h3>
+          <address class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
+            <p>+33 652 111 652</p>
+            <p>pro@ghost-cars.com</p>
+          </address>
+        </div>
+        <div>
+          <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Legal</h3>
+          <address class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
+            <p>GHOST CARS</p>
+            <p>979 358 801 R.C.S Paris</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+
+  {% endblock %}
+  

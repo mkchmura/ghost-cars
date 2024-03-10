@@ -1,0 +1,196 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+{% include 'headers.html' %}
+
+<div class="bg-white">
+  
+  <div class="mx-auto max-w-2xl lg:max-w-none">
+    <h2 class="text-2xl font-semibold leading-8 text-center tracking-tight text-gray-900 mx-auto pt-12 pb-6 sm:text-3xl">Disponible dès aujourd'hui. <br> La <span class="underline underline-offset-4 decoration-[#51DACF]">{{ product.title }}</span>.</h2>
+  </div>
+  <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+      <!-- Image gallery -->
+      <div class="flex flex-col-reverse">
+        <!-- Image selector -->
+        <div class="mx-auto mt-6 w-full max-w-2xl sm:block lg:max-w-none">
+          <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
+            {% for image_url in image_urls %}
+              {% if not forloop.first %}
+                <button id="tabs-1-tab-1" class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4" aria-controls="tabs-1-panel-1" role="tab" type="button">
+                  <span class="sr-only">Angled view</span>
+                  <span class="absolute inset-0 overflow-hidden rounded-md">
+                    <img src="{{ image_url }}" alt="" class="h-full w-full object-cover object-center">
+                  </span>
+                  <!-- Selected: "ring-indigo-500", Not Selected: "ring-transparent" -->
+                  <span class="ring-transparent pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2" aria-hidden="true"></span>
+                </button>
+              {% endif %}
+            {% endfor %}
+            <!-- More images... -->
+          </div>
+        </div>
+
+        <div class="aspect-h-1 aspect-w-1 w-full">
+          <!-- Tab panel, show/hide based on tab state. -->
+          <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+            <img src="{{ image_urls.1 }}" alt="Angled front view with bag zipped and handles upright." class="h-full w-full object-cover object-center sm:rounded-lg">
+          </div>
+
+          <!-- More images... -->
+        </div>
+      </div>
+
+      <!-- Product info -->
+      <div class="mt-10 sm:mt-16 sm:px-0 lg:mt-0">
+        <h1 class="text-xl font-semibold tracking-tight text-gray-900">{{ product.title }}</h1>
+
+        <div>
+          <h2 class="sr-only">Product information</h2>
+          <p class="text-md tracking-tight text-gray-500">EUR {{product.price7abo}}/semaine (HTVA)</p>
+        </div>
+
+        <div class="mt-6">
+          <h3 class="sr-only">Description</h3>
+
+          <div class="space-y-6 text-base text-gray-700">
+            <p>{{product.description}}</p>
+          </div>
+        </div>
+
+        <section aria-labelledby="details-heading" class="mt-12">
+          <h2 id="details-heading" class="sr-only">Additional details</h2>
+
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+
+            {% if product.bookable %}
+            <a href="{{product.paylink}}" class="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-sm font-medium text-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50" style="background-color: #51DACF;">Réserver</a>
+            {% else %}
+            <a href="#" class="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-sm font-medium text-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50" style="background-color: #51DACF;">Nous contacter</a>
+            {% endif %}
+            <a href="#subscribe" class="flex w-full items-center justify-center rounded-md border border-transparent bg-gray-100 px-8 py-3 text-sm font-medium text-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Voir abonnement</a>
+          </div>
+  
+          <div class="mt-10 border-t border-gray-200 pt-10">
+            <h3 class="text-sm font-medium text-gray-900">Configuration</h3>
+            <img src="{{ image_urls.0 }}" alt="vehicle-image" class="max-h-48 mx-auto">
+          </div>
+          <div class=" border-t border-gray-200 pt-10">
+            <h3 class="text-sm font-medium text-gray-900">Service</h3>
+            <div class="prose prose-sm mt-4 text-gray-500">
+              <ul role="list">
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="ml-2">200+ SVG icons in 3 unique styles</span>                  
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="ml-2">200+ SVG icons in 3 unique styles</span>                  
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="ml-2">200+ SVG icons in 3 unique styles</span>                  
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span class="ml-2">200+ SVG icons in 3 unique styles</span>                  
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-gray-200 pt-10">
+            <h3 class="text-sm font-medium text-gray-900">Grille tarifaire (HTVA)</h3>
+            <div class="prose prose-sm mt-4 text-gray-500">
+              <div class="px-4 sm:px-6 lg:px-8">
+                <div class="-mx-4 sm:-mx-0">
+                  <table class="min-w-full divide-y divide-gray-300">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Tarifs</th>
+                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Abonné</th>
+                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sans abonnement</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 bg-white">
+                      <tr>
+                        <td class="whitespace-nowrap py-3 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Semaine</td>
+                        <td class=" whitespace-nowrap px-3 py-3 text-sm text-gray-500 sm:table-cell">{{product.price7abo}} EUR</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500">{{product.price7}}  EUR</td>
+                      </tr>
+                      <tr>
+                        <td class="whitespace-nowrap py-3 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Jour</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500 sm:table-cell">{{product.price24abo}}  EUR</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500">{{product.price24}}  EUR</td>
+                      </tr>
+                      <tr>
+                        <td class="whitespace-nowrap py-3 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Franchise</td>
+                        <td class=" whitespace-nowrap px-3 py-3 text-sm text-gray-500 sm:table-cell">{{product.franchiseabo}} EUR</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500">{{product.franchise}}  EUR</td>
+                      </tr>
+                      <tr>
+                        <td class="whitespace-nowrap py-3 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Km Supp.</td>
+                        <td class=" whitespace-nowrap px-3 py-3 text-sm text-gray-500 sm:table-cell">0 EUR*</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500">2 EUR</td>
+                      </tr>
+                      <tr>
+                        <td class="whitespace-nowrap py-3 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Livraison</td>
+                        <td class=" whitespace-nowrap px-3 py-3 text-sm text-gray-500 sm:table-cell">0 EUR**</td>
+                        <td class="whitespace-nowrap px-3 py-3 text-sm text-gray-500">100  EUR</td>
+                      </tr>
+              
+                      <!-- More people... -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+                            
+              
+            </div>
+          </div>
+  
+          <div class="border-t border-gray-200 pt-10">
+            <h3 class="text-sm font-medium text-gray-900">Forfait d'utilisation</h3>
+            <p class="mt-4 text-sm text-gray-500">Forfait 200km/jour, cumulable. Minimum de location ({{product.mintime}} jours). Bénéficiez de -10% sur une location longue durée de 20 jours et plus.</p>
+            <p class="mt-4 text-sm text-gray-500">*Dans la limite de 400km par jour, au-delà tarif normal appliqué sur l'excès.</p>
+            <p class="mt-4 text-sm text-gray-500">**Dans la région de Paris uniquement, au-delà tarif normal appliqué.</p>
+          </div>
+          <a href="{% url 'all' %}" class="flex font-medium text-black text-sm hover:text-indigo-500 text-center cursor-pointer py-6">Voir tous les véhicules</a>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'subscribe.html' %}
+{% include 'footer.html' %}
+
+
+
+<script>
+  // Get all image selector buttons
+  const imageButtons = document.querySelectorAll('[id^="tabs-1-tab-"]');
+
+  // Function to display the selected image in the main container
+  function displayImage(imageUrl) {
+    const mainImageContainer = document.getElementById('tabs-1-panel-1');
+    mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="Selected Image" class="h-full w-full object-cover object-center sm:rounded-lg">`;
+  }
+
+  // Attach click event listeners to each image selector button
+  imageButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const imageUrl = this.querySelector('img').src;
+      displayImage(imageUrl);
+    });
+  });
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% block content %} {% load static %}
+<div class="flex items-center gap-x-6 bg-dark px-6 py-2.5 sm:px-3.5 sm:before:flex-1" id="banner">
+  <p class="text-sm leading-6 text-white">
+    <a href="#">
+      <strong class="font-semibold">GeneriCon 2023</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Join us in Denver from June 7 – 9 to see what’s coming next&nbsp;<span aria-hidden="true">&rarr;</span>
+    </a>
+  </p>
+  <div class="flex flex-1 justify-end">
+    <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]" id="banner-h">
+      <span class="sr-only">Dismiss</span>
+      <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<header class="bg-white">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 border-b" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="{% url 'index' %}" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="h-8 w-auto" src="{% static 'img/kjsjskjssk.png' %}" alt="" style="filter: invert(1);">
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black"  id="mobileMenuToggle">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="{% url 'all' %}" class="text-sm font-semibold leading-6 text-gray-900">Véhicules</a>
+        <a href="{% url 'about' %}" class="text-sm font-semibold leading-6 text-gray-900">A propos</a>
+        <a href="{% url 'about' %}" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Services</a>
+      </div>
+    </nav>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="lg:hidden" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10" style="display: none;" id="mobileMenu">
+        <div class="flex items-center justify-between">
+          <a href="{% url 'index' %}" class="-m-1.5 p-1.5">
+            <span class="sr-only">Ghost Cars</span>
+            <img class="h-8 w-auto" src="{% static 'img/kjsjskjssk.png' %}" alt="">
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-white" id="menuClose">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          {% include 'mobile-header.html' %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Get references to the mobile menu toggle button, the mobile menu, and the menu close button
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+  
+    // Initialize a variable to track the menu state
+    let isMobileMenuOpen = false;
+  
+    // Function to handle opening the mobile menu
+    function openMobileMenu() {
+      isMobileMenuOpen = true;
+      mobileMenu.style.display = 'block';
+    }
+  
+    // Function to handle closing the mobile menu
+    function closeMobileMenu() {
+      isMobileMenuOpen = false;
+      mobileMenu.style.display = 'none';
+    }
+  
+    // Event listener to open the mobile menu when toggle button is clicked
+    mobileMenuToggle.addEventListener('click', openMobileMenu);
+  
+    // Event listener to close the mobile menu when close button is clicked
+    menuClose.addEventListener('click', closeMobileMenu);
+  </script>
+    <script>
+      // Function to add the 'hidden' class to the banner on click
+      function hideBannerOnClick() {
+          var banner = document.getElementById('banner');
+          banner.classList.add('hidden');
+      }
+
+      // Add an event listener to execute the function after DOM load
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get the banner element by its ID
+          var banner = document.getElementById('banner');
+
+          // Add a click event listener to trigger the hideBannerOnClick function
+          banner.addEventListener('click', hideBannerOnClick);
+      });
+  </script>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<body>
+    <div class="pre-loader" id="preloader">
+        <div class="page">
+            <div class="item">
+                <i class="loader --4"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        var loader = document.getElementById('preloader');
+    window.addEventListener('load', function(){
+        loader.style.display = "none";
+    })
+    </script>
+    {% include 'header.html' %}
+    <section class="main-cars">
+        <div class="d-title-c">
+            <h4 class="h3-title2">Découvrez notre collection.</h4>
+        </div>
+        <!--Service Sport/ Service Prestige-->
+        <div class="service-typee-title">
+            <p class="title-category font2">Le service <span class="font2" style="color: var(--dark-primary); text-transform: uppercase;">Prestige</span></p>
+        </div>
+        <div class="d-grid-c odhhezohezii">
+            <!--CAR SHOW UNIT-->
+            {% for prestige_product in prestige_products %}
+            <a href="/cars/{{ prestige_product.slug }}" class="anone black-font a-center" style="margin-top: 2em;">
+                <div class="d-cars-c">
+                    <div class="d-cars-img-c">
+                        {% for image in prestige_product.product_image.all %}
+                        <img src="{{ image.image.url }}" alt="{{ product.name }}">
+                        {% endfor %}
+                    
+                        <div class="postiche-c">
+                            <span class="postiche">Disponibilité limitée</span>
+                        </div>
+                    </div>
+                    <div class="d-cars-title">
+                        <h4 class="cars-title">{{ prestige_product.title }}</h4>
+                        <p class="car-brand-descr">{{ prestige_product.marque }}</p>
+                        <div class="tri-div-car-descr-c">
+                            <div class="tri-div-car" style="font-style: 30px;">
+                                <ion-icon name="car-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ prestige_product.annee }}</span>
+                            </div>
+                            <div class="tri-div-car">
+                                <ion-icon name="analytics-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ prestige_product.autonomie }} km</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-rent">
+                        <span class="btn-cta">Voir détails</span>
+                    </div>
+                </div>
+            </a>
+            <!--END CAR SHOW UNIT-->
+            {% endfor %}
+        </div>
+        <div class="service-typee-title">
+            <p class="title-category font2">Le service <span class="font2" style="color: var(--dark-primary); text-transform: uppercase;">Sport</span></p>
+        </div>
+        <div class="d-grid-c">
+            <!--CAR SHOW UNIT-->
+            {% for sport_product in sport_products %}
+            <a href="/cars/{{ sport_product.slug }}" class="anone black-font a-center" style="margin-top: 2em;">
+                <div class="d-cars-c">
+                    <div class="d-cars-img-c">
+                        {% for image in sport_product.product_image.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                        {% endfor %}
+                    </div>
+                    <div class="d-cars-title">
+                        <h4 class="cars-title">{{ sport_product.title }} </h4>
+                        <p class="car-brand-descr">{{ sport_product.marque }}</p>
+                        <div class="tri-div-car-descr-c">
+                            <div class="tri-div-car" style="font-style: 30px;">
+                                <ion-icon name="car-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ sport_product.annee }}</span>
+                            </div>
+                            <div class="tri-div-car">
+                                <ion-icon name="analytics-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ sport_product.autonomie }} km</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-rent">
+                        <span class="btn-cta">Voir détails</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            <!--END CAR SHOW UNIT-->
+        </div>
+        <!--KOPS-->
+    
+    </section>
+
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,480 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="bg-gray-900">
+    <header class="absolute inset-x-0 top-0 z-50">
+      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="{% url 'index' %}" class="-m-1.5 p-1.5">
+            <span class="sr-only">Ghost Cars</span>
+            <img class="h-8 w-auto" src="static/img/kjsjskjssk.png" alt="">
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white" id="mobileMenuToggle">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="{% url 'all' %}" class="text-sm font-semibold leading-6 text-white">Véhicules</a>
+          <a href="{% url 'about' %}" class="text-sm font-semibold leading-6 text-white">À propos</a>
+          <a href="{% url 'about' %}" class="text-sm font-semibold leading-6 text-white">Contact</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Services</a>
+        </div>
+
+      </nav>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div class="lg:hidden" role="dialog" aria-modal="true">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-dark px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10" id="mobileMenu" style="display: none;">
+          <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="-m-1.5 p-1.5">
+              <span class="sr-only">Ghost Cars</span>
+              <img class="h-8 w-auto" src="static/img/kjsjskjssk.png" alt="">
+            </a>
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-100" id="menuClose">
+              <span class="sr-only">Close menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="mt-6 flow-root">
+              {% include 'mobile-header.html' %}
+           </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <div class="relative isolate overflow-hidden">
+    <div class="absolute h-full w-full" style="background-color: rgba(0, 0, 0, 0.4);z-index: -1;"></div>   
+    <div class="absolute inset-0 -z-10 h-full w-full object-cover">
+        <video aria-hidden="true" muted="" class="relative z-20 h-full w-full object-cover transition-opacity duration-300 pointer  visible opacity-100" autoplay="" loop="" playsinline=""><source src="https://itds.uk/video.mp4" type="video/mp4"></video>      </div>
+      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+      </div>
+      <div class="mx-auto py284 sm:m-0 sm:px-6 max-w-2xl sm:py-48 lg:pt-64 lg:pb-24 px-4">
+        <div class="flex sm:mb-8 sm:justify-left mb-4">
+          <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-white/10 hover:ring-white/20">
+            Service de Conciergerie <a href="#conciergerie" class="font-semibold text-white ml-2"><span class="absolute inset-0 " aria-hidden="true"></span>Découvrir <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="text-left">
+          <h1 class="text-4xl font-semibold tracking-tight text-white sm:text-6xl">Louez des véhicules de prestige</h1>
+          <p class="mt-6 text-lg leading-8 text-gray-300">Découvrez nos services internationaux de conciergerie et de location automobile.</p>
+        </div>
+      </div>
+      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="py-10 sm:py-12 xl:mx-auto xl:max-w-7xl xl:px-8">
+      <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900">Découvrez notre flotte de véhicules disponible dès demain.</h2>
+        <a href="{% url 'all' %}" class="hidden text-sm font-semibold text-black hover:high sm:block">
+          Voir tous les véhicules
+          <span aria-hidden="true"> &rarr;</span>
+        </a>
+      </div>
+  
+      <div class="mt-8 flow-root">
+        <div class="-my-2">
+          <div class="relative box-content h-80 overflow-x-auto py-2 xl:overflow-visible snap-x snap-mandatory">
+            <div class="absolute flex space-x-8 px-4 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0 ">
+              <a href="/cars/78j9278" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto snap-center">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img src="{% static 'img/testsmart.png' %}" alt="" class="h-full w-full object-cover object-center">
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-semibold text-white">Smart</span>
+                <span class="relative text-center text-md font-medium text-white">Découvrir</span>
+              </a>
+              <a href="/cars/763GGHG76" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto snap-center">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img src="{% static 'img/testvan.png' %}" alt="" class="h-full w-full object-cover object-center">
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-semibold text-white">Vans</span>
+                <span class="relative text-center text-md font-medium text-white">Découvrir</span>
+              </a>
+              <a href="#" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto snap-center">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img src="{% static 'img/testberlines.png' %}" alt="" class="h-full w-full object-cover object-center">
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-semibold text-white">Berlines</span>
+                <span class="relative text-center text-md font-medium text-white">Découvrir</span>
+              </a>
+              <a href="#" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto snap-center">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img src="{% static 'img/testelec.png' %}" alt="" class="h-full w-full object-cover object-center">
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-semibold text-white">Éléctriques</span>
+                <span class="relative text-center text-md font-medium text-white">Découvrir</span>
+              </a>
+              <a href="#" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto snap-center">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img src="{% static 'img/testsmart.png' %}" alt="" class="h-full w-full object-cover object-center">
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-semibold text-white">Conciergerie</span>
+                <span class="relative text-center text-md font-medium text-white">Découvrir</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+      <!-- Featured section -->
+      <section aria-labelledby="comfort-heading" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-lg">
+          <div class="absolute inset-0">
+            <img src="https://img.sixt.com/1200/f77b34fe-b837-4a74-81a0-ace8fde63bad.jpg" alt="" class="h-full w-full object-cover object-center">
+          </div>
+          <div class="relative bg-zinc-900 bg-opacity-50 px-6 pt-48 py-20 sm:px-12 sm:py-40 lg:px-16">
+            <div class="relative mx-auto flex max-w-2xl flex-col items-center text-center">
+              <h2 id="comfort-heading" class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Simplicité, rapidité.</h2>
+              <p class="mt-3 text-xl text-white">Endless tasks, limited hours, a single piece of paper. Not really a haiku, but we're doing our best here.</p>
+              <a href="{% url 'all' %}" class="mt-8 block w-full rounded-md px-8 py-3 mint text-sm font-medium text-gray-900 hover:bg-gray-100 sm:w-auto text-center">Réserver en un clic</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!--
+  <div class="bg-zinc-950 py-24 sm:py-32">
+    <div class="relative isolate">
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-4 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+          <img class="h-96 w-full hidden sm:flex flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src="https://a.cdn-hotels.com/gdcs/production107/d625/d22d2448-0238-4573-b055-6b079e972dbb.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="">
+          <div class="w-full flex-auto">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Agence de location parisienne</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Selectionnez un véhicule de notre flotte, et contactez nous pour le réserver en moins de 10 minutes.  </p>
+            <ul role="list" class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 text-white sm:grid-cols-2">
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Disponibilité 24/7
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Véhicules Haut-de-gamme
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Livrés sur place
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Tarifs fixes
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Service personnalisé
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                </svg>
+                Plaques Françaises
+              </li>
+            </ul>
+            <div class="mt-10 flex">
+              <a href="{% url 'about' %}" class="text-sm font-semibold leading-6 text-yellow-400">Nous contacter <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  
+  
+<div class="bg-white" id="conciergerie">
+  <section aria-labelledby="features-heading" class="mx-auto max-w-7xl pt-12 pb-24 sm:px-2 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
+      <div class="max-w-3xl">
+        <h2 id="features-heading" class="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900">Conciergerie Automobile</h2>
+        <p class="mt-4 text-gray-500">The Organize modular system offers endless options for arranging your favorite and most used items. Keep everything at reach and in its place, while dressing up your workspace.</p>
+      </div>
+
+      <div class="mt-4">
+        <div class="-mx-4 flex overflow-x-auto sm:mx-0">
+          <div class="flex-auto border-b border-gray-200 px-4 sm:px-0">
+            <div class="-mb-px flex space-x-10" aria-orientation="horizontal" role="tablist">
+              <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+              <button id="features-tab-1" class=" border-teal-300 hover:border-teal-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-6 text-sm font-medium" aria-controls="features-panel-1" role="tab" type="button">Stationnement</button>
+              <button id="features-tab-2" class=" text-gray-500 hover:border-teal-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-6 text-sm font-medium" aria-controls="features-panel-2" role="tab" type="button">Transport</button>
+              <button id="features-tab-3" class=" text-gray-500 hover:border-teal-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-6 text-sm font-medium" aria-controls="features-panel-3" role="tab" type="button">Esthétique</button>
+              <button id="features-tab-4" class=" text-gray-500 hover:border-teal-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-6 text-sm font-medium" aria-controls="features-panel-4" role="tab" type="button">Livraison 24/7</button>
+              <button id="features-tab-4" class=" text-gray-500 hover:border-teal-300 hover:text-gray-700 whitespace-nowrap border-b-2 py-6 text-sm font-medium" aria-controls="features-panel-5" role="tab" type="button">Localisation</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="features-panel-1" class="space-y-16 pt-10 sm:py-12 lg:pt-16" aria-labelledby="features-tab-1" role="tabpanel" tabindex="0">
+          <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="mt-6 lg:col-span-5 lg:mt-0">
+              <h3 class="text-lg font-medium text-gray-900">Stationnement sécurisé</h3>
+              <p class="mt-2 text-sm text-gray-500">The Organize base set allows you to configure and evolve your setup as your items and habits change. The included trays and optional add-ons are easily rearranged to achieve that perfect setup.</p>
+              <a href="#" class="flex w-full mint justify-center sm:w-56 rounded-lg grad px-3 sm:px-6 py-3 mt-8 text-sm font-medium border-black leading-6 text-black hover:bg-zing-950 sm:py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950 items-center">                            
+                Déposer mon véhicule</a>
+            </div>
+            <div class="lg:col-span-7">
+              <div class="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">
+                <img src="https://www.saemes.fr/sites/default/files/photo-parking-large-short.png" alt="Maple organizer base with slots, supporting white polycarbonate trays of various sizes." class="object-cover object-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="features-panel-2" class="hidden space-y-16 pt-10 lg:pt-16" aria-labelledby="features-tab-2" role="tabpanel" tabindex="0">
+          <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="mt-6 lg:col-span-5 lg:mt-0">
+              <h3 class="text-lg font-medium text-gray-900">Déplacez votre véhicule en Europe</h3>
+              <p class="mt-2 text-sm text-gray-500">Organize has options for rich walnut and bright maple base materials. Accent your desk with a contrasting material, or match similar woods for a calm and cohesive look. Every base is hand sanded and finished.</p>
+              <a href="#" class="flex w-full mint justify-center sm:w-56 rounded-lg grad px-3 sm:px-6 py-3 mt-8 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-500 sm:py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">Déposer mon véhicule</a>
+            </div>
+            <div class="lg:col-span-7">
+              <div class="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">
+                <img src="https://asset.montecarlosbm.com/styles/hero_desktop_wide_responsive_webp/s3/media/orphea/ca_casino_square_2020_0108.jpg.webp?h=83214b8f&itok=nnOkB924" alt="Walnut organizer base with pen, sticky note, phone, and bin trays, next to modular drink coaster attachment." class="object-cover object-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="features-panel-3" class="hidden space-y-16 pt-10 lg:pt-16" aria-labelledby="features-tab-3" role="tabpanel" tabindex="0">
+          <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="mt-6 lg:col-span-5 lg:mt-0">
+              <h3 class="text-lg font-medium text-gray-900">Soins ésthétiques intérieurs et extérieurs</h3>
+              <p class="mt-2 text-sm text-gray-500">Our customers use Organize throughout the house to bring efficiency to many daily routines. Enjoy Organize in your workspace, kitchen, living room, entry way, garage, and more. We can&#039;t wait to see how you&#039;ll use it!</p>
+              <a href="#" class="flex w-full mint justify-center sm:w-56 rounded-lg grad px-3 sm:px-6 py-3 mt-8 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-500 sm:py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">Déposer mon véhicule</a>
+            </div>
+            <div class="lg:col-span-7">
+              <div class="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">
+                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-06-detail-03.jpg" alt="Walnut organizer base with white polycarbonate trays in the kitchen with various kitchen utensils." class="object-cover object-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="features-panel-4" class="hidden space-y-16 pt-10 lg:pt-16" aria-labelledby="features-tab-4" role="tabpanel" tabindex="0">
+          <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="mt-6 lg:col-span-5 lg:mt-0">
+              <h3 class="text-lg font-medium text-gray-900">Everything you&#039;ll need</h3>
+              <p class="mt-2 text-sm text-gray-500">The Organize base set includes the pen, phone, small, and large trays to help you group all your essential items. Expand your set with the drink coaster and headphone stand add-ons.</p>
+              <a href="#" class="flex w-full mint justify-center sm:w-56 rounded-lg grad px-3 sm:px-6 py-3 mt-8 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-500 sm:py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">Déposer mon véhicule</a>
+            </div>
+            <div class="lg:col-span-7">
+              <div class="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">
+                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-06-detail-04.jpg" alt="Walnut organizer system on black leather desk mat on top of white desk." class="object-cover object-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="features-panel-5" class="hidden space-y-16 pt-10 lg:pt-16" aria-labelledby="features-tab-5" role="tabpanel" tabindex="0">
+          <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <div class="mt-6 lg:col-span-5 lg:mt-0">
+              <h3 class="text-lg font-medium text-gray-900">Localiser votre véhicule</h3>
+              <p class="mt-2 text-sm text-gray-500">The Organize base set includes the pen, phone, small, and large trays to help you group all your essential items. Expand your set with the drink coaster and headphone stand add-ons.</p>
+              <a href="#" class="flex w-full mint justify-center sm:w-56 rounded-lg grad px-3 sm:px-6 py-3 mt-8 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-gray-500 sm:py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">Déposer mon véhicule</a>
+            </div>
+            <div class="lg:col-span-7">
+              <div class="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">
+                <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/08/google-maps-dark-mode-iphone.jpg" alt="Walnut organizer system on black leather desk mat on top of white desk." class="object-cover object-center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% include 'subscribe.html' %}
+
+
+<section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20"></div>
+  <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-green-600/10 ring-1 ring-green-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+  <div class="mx-auto max-w-2xl lg:max-w-4xl">
+    <figure class="mt-10">
+      <blockquote class="text-center text-md font-medium leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+        <div class="flex items-baseline justify-center max-w-7xl mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>          
+          <p class="text-gray-900 ml-3 text-md">4.9 sur 5 (47 avis)</p>
+       </div>
+        <p class="pt-3 ">“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”</p>
+      </blockquote>
+      <figcaption class="mt-10">
+        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+          <div class="font-semibold text-gray-900">Judith Black</div>
+          <div class="text-gray-600">CEO of Workcation</div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="bg-white">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+        <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+
+        <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+          <div class="-ml-4 flex items-center gap-x-4">
+            <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
+              <circle cx="1" cy="1" r="1" />
+            </svg>
+            <span class="high">→ Réserver en ligne</span>
+          </div>
+        </div>
+        <h3 class="mt-3 text-xl font-semibold leading-6 text-white">
+          <a href="/cars/78j9278">
+            <span class="absolute inset-0"></span>
+            Louer une Smart sur Paris
+          </a>
+        </h3>
+      </article>
+      <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+        <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+
+        <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+          <div class="-ml-4 flex items-center gap-x-4">
+            <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
+              <circle cx="1" cy="1" r="1" />
+            </svg>
+            <span class="high">→ Réserver en ligne</span>
+          </div>
+        </div>
+        <h3 class="mt-3 text-xl font-semibold leading-6 text-white">
+          <a href="#">
+            <span class="absolute inset-0"></span>
+            Location de vans exclusifs
+          </a>
+        </h3>
+      </article>
+      <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+        <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+
+        <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+          <div class="-ml-4 flex items-center gap-x-4">
+            <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
+              <circle cx="1" cy="1" r="1" />
+            </svg>
+            <span class="high">→ Réserver en ligne</span>
+          </div>
+        </div>
+        <h3 class="mt-3 text-xl font-semibold leading-6 text-white">
+          <a href="#">
+            <span class="absolute inset-0"></span>
+            Conciergerie automobile à Paris
+          </a>
+        </h3>
+      </article>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Hide all panels
+        panels.forEach(panel => {
+          panel.classList.add('hidden');
+        });
+
+        // Remove the 'border-indigo-500' and 'text-indigo-600' classes from all tabs
+        tabs.forEach(t => {
+          t.classList.remove('border-high', 'text-black');
+          t.classList.add('border-transparent','text-gray-500');
+        });
+
+        // Get the target panel and show it
+        const targetPanelId = tab.getAttribute('aria-controls');
+        const targetPanel = document.getElementById(targetPanelId);
+        targetPanel.classList.remove('hidden');
+
+        // Add 'border-indigo-500' and 'text-indigo-600' classes to the clicked tab
+        tab.classList.add('border-high', 'text-black');
+      });
+    });
+  });
+</script>
+
+
+  <!--footer-->
+  {% include 'footer.html' %}
+  <script>
+    // Get references to the mobile menu toggle button, the mobile menu, and the menu close button
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+  
+    // Initialize a variable to track the menu state
+    let isMobileMenuOpen = false;
+  
+    // Function to handle opening the mobile menu
+    function openMobileMenu() {
+      isMobileMenuOpen = true;
+      mobileMenu.style.display = 'block';
+    }
+  
+    // Function to handle closing the mobile menu
+    function closeMobileMenu() {
+      isMobileMenuOpen = false;
+      mobileMenu.style.display = 'none';
+    }
+  
+    // Event listener to open the mobile menu when toggle button is clicked
+    mobileMenuToggle.addEventListener('click', openMobileMenu);
+  
+    // Event listener to close the mobile menu when close button is clicked
+    menuClose.addEventListener('click', closeMobileMenu);
+  </script>
+  
+  
+{% endblock %}
