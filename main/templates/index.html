@@ -1,0 +1,362 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<body class="body">
+    <div class="pre-loader" id="preloader">
+        <div class="page">
+            <div class="item">
+                <i class="loader --4"></i>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="header-c">
+            <div class="header">
+                <div class="logo-c">
+                    <img src="static/img/FinanceUI.png" alt="" class="logo">
+                    <div class="logo-title-c">
+                        <span class="logo-m">Ghost-Cars</span>
+                        <span class="loc-logo">Paris - Cannes - Monaco</span>
+                    </div>
+                </div>
+                <div class="plate plate4" id="burger-menu">
+                    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                      <path class="line line1" d="M 50,35 H 30" />
+                      <path class="line line2" d="M 50,35 H 70" />
+                      <path class="line line3" d="M 50,50 H 30" />
+                      <path class="line line4" d="M 50,50 H 70" />
+                      <path class="line line5" d="M 50,65 H 30" />
+                      <path class="line line6" d="M 50,65 H 70" />
+                    </svg>
+                    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                      <path class="line" d="M 34,32 L 66,68" />
+                      <path class="line" d="M 66,32 L 34,68" />
+                    </svg>
+                  </div>
+            </div>
+        </div>
+
+        <!--MENU-->
+
+        {% include 'header-menu.html' %}
+
+        <div class="container-main">
+            <div class="cont">
+                <div class="ttt">
+                    
+                    <div class="c-c">Louez votre voiture, <br class="br"> avec prestige. </div>
+                    <p class="title-main">Sport, Limousine, events.</p>
+
+                </div>
+            </div>
+            
+            <div class="fluids">    
+                <div class="vid">
+                    <iframe id="recruiting-video-cover" class="transition-opacity fluidvids-item" src="https://player.vimeo.com/video/844749701?badge=0&amp;autopause=1&amp;autoplay=1&amp;background=1&amp;loop=1&amp;muted=1&amp;playsinline=1&amp;transparent=1&amp;texttrack=false;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" style="pointer-events: none; opacity: 1;" title="Join us in shaping the future of technology" data-fluidvids="loaded" data-ready="true" autoplay=1 loop=1></iframe>
+                </div>   
+        </div> 
+        </div>
+    </div>
+
+    <section class="main-cars">
+        <div class="d-title-c">
+            <h4 class="h3-title2">Découvrez notre collection.</h4>
+        </div>
+        <!--Service Sport/ Service Prestige-->
+        <div class="service-typee-title">
+            <p class="title-category font2">Le service <span class="font2" style="color: var(--dark-primary); text-transform: uppercase;">Prestige</span></p>
+        </div>
+        <div class="d-grid-c odhhezohezii">
+            <!--CAR SHOW UNIT-->
+            {% for prestige_product in prestige_products %}
+            <a href="/cars/{{ prestige_product.slug }}" class="anone black-font a-center" style="margin-top: 2em;">
+                <div class="d-cars-c">
+                    <div class="d-cars-img-c">
+                        {% for image in prestige_product.product_image.all %}
+                        <img src="{{ image.image.url }}" alt="{{ product.name }}">
+                        {% endfor %}
+                        <!--
+                        <div class="postiche-c">
+                            <span class="postiche">Disponibilité limitée</span>
+                        </div>
+                        -->
+                    </div>
+                    <div class="d-cars-title">
+                        <h4 class="cars-title">{{ prestige_product.title }}</h4>
+                        <p class="car-brand-descr">{{ prestige_product.marque }}</p>
+ 
+                        <div class="tri-div-car-descr-c">
+                            <div class="tri-div-car" >
+                                <ion-icon name="car-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ prestige_product.annee }}</span>
+                            </div>
+                            <div class="tri-div-car">
+                                <ion-icon name="analytics-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ prestige_product.autonomie }} km</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-rent">
+                        <span class="btn-cta">Voir détails</span>
+                    </div>
+                </div>
+            </a>
+            <!--END CAR SHOW UNIT-->
+            {% endfor %}
+        </div>
+        <div class="service-typee-title">
+            <p class="title-category font2">Le service <span class="font2" style="color: var(--dark-primary); text-transform: uppercase;">Sport</span></p>
+        </div>
+        <div class="d-grid-c">
+            <!--CAR SHOW UNIT-->
+            {% for sport_product in sport_products %}
+            <a href="/cars/{{ sport_product.slug }}" class="anone black-font a-center" style="margin-top: 2em;">
+                <div class="d-cars-c">
+                    <div class="d-cars-img-c">
+                        {% for image in sport_product.product_image.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                        {% endfor %}
+                    </div>
+                    <div class="d-cars-title">
+                        <h4 class="cars-title">{{ sport_product.title }} </h4>
+                        <p class="car-brand-descr">{{ sport_product.marque }}</p>
+                        <div class="tri-div-car-descr-c">
+                            <div class="tri-div-car" style="font-style: 30px;">
+                                <ion-icon name="car-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ sport_product.annee }}</span>
+                            </div>
+                            <div class="tri-div-car">
+                                <ion-icon name="analytics-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ sport_product.autonomie }} km</span>
+                            </div>
+                            <div class="tri-div-car">
+                                <ion-icon name="speedometer-outline"></ion-icon>
+                                <span class="tri-icon-fs">{{ sport_product.vitessemax }} km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-rent">
+                        <span class="btn-cta">Voir détails</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            <!--END CAR SHOW UNIT-->
+        </div>
+        <!--KOPS-->
+        
+        <div class="d-title-more" id="trig">
+            <a href="{% url 'list' %}" class="anone" style="color: black;">
+                <div class="service-type-title">
+                    <p class="title-category2 font2" style="margin-bottom: 1em;">Voir tous les véhicules <span class="font2"></span></p>
+                    <ion-icon name="arrow-forward-outline" style="color: black;"></ion-icon>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--Box divider Text-->
+    <section class="info-c">
+        <div class="info-box">
+            <h3 class="h3-title">1ÈRE LOCATION PARISIENNE</h3>
+            <p class="info-box-p">Avec plus de 10 ans d'expérience, Ghost-Cars est réputé pour son service personnalisé et sa gamme de voitures de prestige disponibles.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="img-container">
+        </div>
+    </section>
+
+
+    <section class="info-c">
+        <div class="info-box">
+            <!--
+            <div class="align-center">
+                <ion-icon name="add-circle-outline" style="font-size: 40px; color: white;"></ion-icon>
+            </div>-->
+            <h3 class="h3-title">OPTION CHAUFFEUR PRIVÉ</h3>
+            <p class="info-box-p">Nos chauffeurs professionnels et discrets assurent vos déplacement dans des véhicules de prestige alliant élégance et confort. Laissez-vous conduire !</p>
+        </div>
+    </section>
+    <section>
+        <div class="img-container2">
+        </div>
+    </section>
+        
+    <section>
+        <div class="carousel">
+            <div class="carousel-container">
+              <div class="carousel-item">
+                <div class="content">
+                  <p style="margin-bottom: .5em;">"Week-end formidable en Aston, merci Ghost-Cars pour le service pro." </p>
+                  <strong style="margin-bottom: .5em;">Alex K.</strong>
+                    <div class="stars-review-c">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="content">
+                    <p style="margin-bottom: .5em;">"Week-end formidable en Aston, merci Ghost-Cars pour le service pro." </p>
+                    <strong style="margin-bottom: .5em;">Alex K.</strong>
+                      <div class="stars-review-c">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star-half"></ion-icon>
+                      </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <div class="content">
+                    <p style="margin-bottom: .5em;">"Week-end formidable en Aston, merci Ghost-Cars pour le service pro." </p>
+                    <strong style="margin-bottom: .5em;">Alex K.</strong>
+                      <div class="stars-review-c">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star-half"></ion-icon>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>          
+    </section>
+
+    <section class="contact-c">
+        <a href="tel:+33650505050" class="anone">
+        <div class="cta-btn-info">
+            <p style="color: black;">Nous appeler</p>
+            <p style="color: black;"><i class="fa-solid fa-chevron-right fa-beat"></i></p>
+        </div>
+        </a>
+    </section>
+
+<!--
+    <section class="insta-c">
+        <div class="insta-mosaic">
+            <div class="insta-row">
+                <div class="insta-pic-c">
+                    <img src="{% static 'img/fefe1.jpeg' %}" alt="" class="insta-pic">
+                    <img src="https://blobcdn.same.energy/a/93/96/9396774751cf0516377481a0e81a93031d8c9ec9" alt="" class="insta-pic">
+                    <img src="{% static 'img/rolls.jpeg' %}" alt="" class="insta-pic">
+                </div>
+            </div>
+            <div class="insta-row">
+                <div class="insta-pic-c">
+                    <img src="https://blobcdn.same.energy/b/74/31/7431c2d501d57417bdc2702657888f47278095d0" alt="" class="insta-pic">
+                    <img src="https://blobcdn.same.energy/a/e0/6b/e06b2181cf83c2d4acdd9a845443aac4471093f7" alt="" class="insta-pic">
+                    <img src="https://blobcdn.same.energy/b/5b/6a/5b6af7a4bf78eb00ef5d698d2dc81d9507d6c3b6" alt="" class="insta-pic">
+                </div>
+            </div>
+        </div>
+        <a href="https://www.instagram.com/ghostcarsrent/" class="anone">
+            <div class="cta-btn-info2">
+                <div class="insta-ni-c">
+                    <p style="color: white;">@ghostcarsrent</p>
+                    <img src="static/img/icons8-instagram-verification-badge-480.png" alt="" class="certif">
+                </div>
+                <p style="color: white;"><i class="fa-solid fa-chevron-right"></i></p>
+            </div>
+        </a>
+    </section>-->
+
+        
+     
+    </div>
+    <script>
+        var loader = document.getElementById('preloader');
+            window.addEventListener('load', function(){
+                loader.style.display = "none";
+            })
+    </script>
+    <script>
+// Get the trigger element
+const trigElement = document.getElementById('trig');
+
+// Get the elements with class "Kops" and "d-title-more"
+const kopsElement = document.querySelector('.kops');
+const dTitleMoreElements = document.querySelectorAll('.d-title-more');
+
+// Function to handle the click event
+function handleClick() {
+  // Toggle the display property for "Kops" class
+  if (kopsElement.style.display === 'flex') {
+    kopsElement.style.display = 'none';
+  } else {
+    kopsElement.style.display = 'flex';
+  }
+
+  // Set the display property to "none" for elements with class "d-title-more"
+  dTitleMoreElements.forEach((element) => {
+    element.style.display = 'none';
+  });
+}
+
+// Attach the click event listener
+trigElement.addEventListener('click', handleClick);
+
+    </script>
+    <script>
+        //CAROUSEL
+var carousel = document.querySelector('.carousel');
+var carouselContainer = carousel.querySelector('.carousel-container');
+var carouselItems = carousel.querySelectorAll('.carousel-item');
+var currentIndex = 0;
+var itemWidth = carouselItems[0].clientWidth;
+var totalItems = carouselItems.length;
+
+function slideTo(index) {
+  if (index < 0 || index >= totalItems) return;
+
+  currentIndex = index;
+  carouselContainer.style.transform = 'translateX(' + (currentIndex * -itemWidth) + 'px)';
+}
+
+function next() {
+  var nextIndex = (currentIndex + 1) % totalItems;
+  slideTo(nextIndex);
+}
+
+function prev() {
+  var prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+  slideTo(prevIndex);
+}
+
+setInterval(next, 5000);
+
+    </script>
+    <script>
+        document.getElementById('burger-menu').addEventListener('click', function() {
+          var menu = document.querySelector('.menu');
+          var overlay = document.querySelector('.menu-overlay');
+          var burger = document.querySelector('.plate');
+          var body = document.querySelector('body');
+        
+          menu.classList.toggle('show');
+          overlay.classList.toggle('show');
+          burger.classList.toggle('active');
+          body.classList.toggle('no-scroll');
+        });
+        
+        document.querySelector('.menu-overlay').addEventListener('click', function() {
+          var menu = document.querySelector('.menu');
+          var overlay = document.querySelector('.menu-overlay');
+          var burger = document.querySelector('.plate');
+          var body = document.querySelector('body');
+        
+          if (menu.classList.contains('show')) {
+            menu.classList.remove('show');
+            overlay.classList.remove('show');
+            burger.classList.remove('active');
+            body.classList.remove('no-scroll');
+          }
+        });
+        </script>
+</body>
+{% endblock %}

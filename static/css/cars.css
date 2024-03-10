@@ -1,0 +1,111 @@
+
+
+  .cars-descr {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white-primary);
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .cars-info {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    padding-left: 1em;
+    border-bottom: solid 1px #CCC;
+    padding-right: 1em;
+  }
+
+  .car-cars-descr {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-bottom: 0.3em;
+    border-bottom: solid 1px #CCC;
+  }
+
+  .cars-c-1 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .cars-c-2 {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  .back-home {
+    background-color: var(--dark);
+    padding: .5em;
+    color: white;
+
+  }
+
+  .cars-title {
+    margin-top: .8em;
+    font-size: 1rem;
+  }
+
+  .back-main {
+    font-size: 12px;
+    padding: 0.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  .w-primary {
+    background-color: #fafafa;
+  }
+
+  .service-box-descr {
+    background-color: var(--white-primary);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 1em;
+  }
+  .cars-descr-txt {
+    font-weight: 500;
+    font-size: 14px;
+    background-color: var(--white-primary);
+    margin: 0;
+    color: grey;
+    padding: 1em;
+  }
+  .box-car {
+    padding: 2px 7px 2px 7px;
+    border: solid 1px grey;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: .5em;
+    margin-bottom: .5em;
+    font-size: 14px;
+    color: grey;
+
+  }
+  /* Basic styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-secondary);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.shadow-h {
+  box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+}
+
+.logo img {
+  width: 3em;
+}
+
+
